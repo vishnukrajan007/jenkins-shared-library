@@ -1,8 +1,12 @@
-def call(String imageName, String imageTag) {
+def call(String servicePath,
+         String imageName,
+         String imageTag) {
 
     echo "Building ${imageName}:${imageTag}"
 
     sh """
-        docker build -t ${imageName}:${imageTag} .
+        docker build \
+        -t ${imageName}:${imageTag} \
+        ${servicePath}
     """
 }
